@@ -12,6 +12,7 @@
 <body class="bg-slate-50 text-slate-800">
 
     <div id="app">
+        <!-- Header & Navigation -->
         <header class="bg-white/80 backdrop-blur-lg sticky top-0 z-20 border-b border-slate-200">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex items-center justify-between h-16">
@@ -22,6 +23,7 @@
                         <a href="#silver" class="nav-link font-medium text-slate-600 border-b-2 border-transparent px-2 py-1">Silver Layer</a>
                         <a href="#gold" class="nav-link font-medium text-slate-600 border-b-2 border-transparent px-2 py-1">Gold Layer</a>
                         <a href="#remediation" class="nav-link font-medium text-slate-600 border-b-2 border-transparent px-2 py-1">Remediation</a>
+                        <a href="#prerequisites" class="nav-link font-medium text-slate-600 border-b-2 border-transparent px-2 py-1">Prerequisites</a>
                     </nav>
                     <div class="md:hidden">
                         <select id="mobile-nav" class="bg-slate-100 border border-slate-300 rounded-md p-2 text-slate-700">
@@ -30,14 +32,17 @@
                             <option value="silver">Silver Layer</option>
                             <option value="gold">Gold Layer</option>
                             <option value="remediation">Remediation</option>
+                            <option value="prerequisites">Prerequisites</option>
                         </select>
                     </div>
                 </div>
             </div>
         </header>
 
+        <!-- Main Content Area -->
         <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
             
+            <!-- Overview Section -->
             <section id="overview" class="content-section">
                 <div class="text-center mb-12">
                     <h2 class="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">Interactive Pipeline Architecture</h2>
@@ -63,8 +68,9 @@
                 </div>
             </section>
 
+            <!-- Bronze Section -->
             <section id="bronze" class="content-section hidden">
-                   <div class="text-left mb-12">
+                 <div class="text-left mb-12">
                     <h2 class="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">Step 1: Raw Data Ingestion (Bronze Layer)</h2>
                     <p class="mt-4 max-w-3xl text-lg text-slate-600">The first stage of our pipeline is focused on capturing all incoming data in its original, raw format. The primary goal is reliable and complete ingestion, creating an immutable, historical record before any transformations occur. This ensures no data is lost and provides a source of truth for all downstream processing.</p>
                 </div>
@@ -102,6 +108,7 @@
                 </div>
             </section>
 
+            <!-- Silver Section -->
             <section id="silver" class="content-section hidden">
                 <div class="text-left mb-12">
                     <h2 class="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">Step 2: Preprocessing & Quality Checks (Silver Layer)</h2>
@@ -119,13 +126,13 @@
                                     <div class="diagram-box clickable p-4 bg-green-100 border-green-300 border rounded-lg w-full text-center" data-title="Silver Valid Table" data-content="Contains records that passed ALL quality expectations. This is the clean, trusted dataset used for all downstream analytics and reporting.">Silver Valid Table 🏛️</div>
                                 </div>
                                 <div class="w-1/2 flex flex-col items-center space-y-2">
-                                   <div class="text-slate-500 font-medium">Invalid &rarr;</div>
-                                   <div class="diagram-box clickable p-4 bg-red-100 border-red-300 border rounded-lg w-full text-center" data-title="Silver Quarantine Table" data-content="Contains records that failed AT LEAST ONE quality expectation. These records are isolated here, along with a 'failure_reason', for analysis and remediation.">Silver Quarantine Table 🏛️</div>
+                                     <div class="text-slate-500 font-medium">Invalid &rarr;</div>
+                                     <div class="diagram-box clickable p-4 bg-red-100 border-red-300 border rounded-lg w-full text-center" data-title="Silver Quarantine Table" data-content="Contains records that failed AT LEAST ONE quality expectation. These records are isolated here, along with a 'failure_reason', for analysis and remediation.">Silver Quarantine Table 🏛️</div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                   <div>
+                     <div>
                         <h3 class="text-2xl font-semibold mb-4 text-slate-800">Functional Steps</h3>
                         <ul class="space-y-4">
                             <li class="flex items-start">
@@ -149,13 +156,14 @@
                 </div>
             </section>
             
+            <!-- Gold Section -->
             <section id="gold" class="content-section hidden">
                 <div class="text-left mb-12">
                     <h2 class="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">Step 3: Data Curation (Gold Layer)</h2>
                     <p class="mt-4 max-w-3xl text-lg text-slate-600">The Gold layer represents the final, most refined stage of the pipeline. Data from the Silver layer is transformed into highly curated, business-level tables optimized for analytics. These tables often involve aggregations, joins with other datasets, and are designed to directly power BI dashboards, reports, and ML models.</p>
                 </div>
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-                   <div class="bg-white p-6 sm:p-8 rounded-xl shadow-sm border border-slate-200">
+                     <div class="bg-white p-6 sm:p-8 rounded-xl shadow-sm border border-slate-200">
                         <div class="flex flex-col items-center space-y-4">
                              <div class="diagram-box p-4 bg-green-100 rounded-lg border border-green-200 w-full text-center">Silver Valid Table 🏛️</div>
                              <div class="text-2xl text-slate-400 font-light">&darr;</div>
@@ -184,6 +192,7 @@
                 </div>
             </section>
 
+            <!-- Remediation Section -->
             <section id="remediation" class="content-section hidden">
                 <div class="text-left mb-12">
                     <h2 class="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">Step 4: Data Remediation Workflow</h2>
@@ -194,11 +203,11 @@
                         <div class="flex flex-col items-center space-y-4">
                              <div class="diagram-box p-4 bg-red-100 rounded-lg border border-red-200 w-full text-center">Silver Quarantine Table 🏛️</div>
                              <div class="text-2xl text-slate-400 font-light">&darr;</div>
-                             <div class="diagram-box clickable p-4 bg-slate-100 rounded-lg border border-slate-200 w-full text-center" data-title="Monitoring & Alerting" data-content="Automated systems like Databricks SQL Alerts (🔔) or Lakehouse Monitoring (📈) watch the quarantine table and notify the Data Quality team when new invalid records arrive.">Monitoring & Alerting 🔔📈</div>
+                             <div class="diagram-box clickable p-4 bg-slate-100 rounded-lg border border-slate-200 w-full text-center" data-title="Monitoring & Alerting" data-content="Automated systems like Databricks SQL Alerts (🔔) or Lakehouse Monitoring (📈) watch the quarantine table and notify the Data Quality team when new invalid records arrive.">Monitoring & Alerting �📈</div>
                              <div class="text-2xl text-slate-400 font-light">&darr;</div>
                              <div class="diagram-box clickable p-4 bg-slate-100 rounded-lg border border-slate-200 w-full text-center" data-title="Analysis & Correction" data-content="The Data Quality team investigates (🔍) the failure reason to understand the root cause. Correction (⚙️) can involve fixing the source system, updating the DLT pipeline logic, or running a one-time cleansing job.">Analysis 🔍 & Correction ⚙️</div>
                              <div class="text-2xl text-slate-400 font-light">&darr;</div>
-                             <div class="diagram-box clickable p-4 bg-slate-100 rounded-lg border border-slate-200 w-full text-center" data-title="Re-ingestion" data-content="Once fixed, the corrected data is re-introduced to the pipeline's starting point (the external source) to be processed again, this time successfully passing the quality gates.">Re-ingest & Re-process 🔄</div>
+                              <div class="diagram-box clickable p-4 bg-slate-100 rounded-lg border border-slate-200 w-full text-center" data-title="Re-ingestion" data-content="Once fixed, the corrected data is re-introduced to the pipeline's starting point (the external source) to be processed again, this time successfully passing the quality gates.">Re-ingest & Re-process 🔄</div>
                         </div>
                     </div>
                     <div>
@@ -212,8 +221,45 @@
                     </div>
                 </div>
             </section>
+
+            <!-- Prerequisites Section -->
+            <section id="prerequisites" class="content-section hidden">
+                <div class="text-left mb-12">
+                    <h2 class="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">Prerequisites for DLT Pipeline</h2>
+                    <p class="mt-4 max-w-3xl text-lg text-slate-600">To successfully implement and deploy this DLT pipeline mechanism, the following technical and platform prerequisites must be in place:</p>
+                </div>
+                <div class="bg-white p-6 sm:p-8 rounded-xl shadow-sm border border-slate-200">
+                    <ul class="space-y-4 text-lg text-slate-700">
+                        <li class="flex items-start">
+                            <span class="flex-shrink-0 flex items-center justify-center h-8 w-8 rounded-full bg-blue-500 text-white font-bold mr-4 mt-1">1️⃣</span>
+                            <p><strong class="text-slate-900">Active Databricks Workspace:</strong> An operational Databricks workspace linked to your cloud provider (AWS, Azure, or GCP).</p>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="flex-shrink-0 flex items-center justify-center h-8 w-8 rounded-full bg-blue-500 text-white font-bold mr-4 mt-1">2️⃣</span>
+                            <p><strong class="text-slate-900">Unity Catalog Enabled & Configured:</strong> Unity Catalog must be enabled for your workspace with a metastore, and designated catalogs/schemas for DLT table publication (Bronze, Silver, Gold, Quarantine).</p>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="flex-shrink-0 flex items-center justify-center h-8 w-8 rounded-full bg-blue-500 text-white font-bold mr-4 mt-1">3️⃣</span>
+                            <p><strong class="text-slate-900">Required Unity Catalog Permissions:</strong> Necessary `USE CATALOG`, `USE SCHEMA`, `CREATE TABLE`, `CREATE MATERIALIZED VIEW` privileges on target catalogs/schemas, and `SELECT`/`READ` permissions on source data locations.</p>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="flex-shrink-0 flex items-center justify-center h-8 w-8 rounded-full bg-blue-500 text-white font-bold mr-4 mt-1">4️⃣</span>
+                            <p><strong class="text-slate-900">Cloud Storage & External Locations/Volumes:</strong> Raw data must be accessible from a cloud storage account (S3, ADLS, GCS), configured as an External Location or Volume in Unity Catalog.</p>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="flex-shrink-0 flex items-center justify-center h-8 w-8 rounded-full bg-blue-500 text-white font-bold mr-4 mt-1">5️⃣</span>
+                            <p><strong class="text-slate-900">DLT Pipeline Creation Permissions:</strong> User or service principal requires permissions to create and manage DLT pipelines within the Databricks workspace (e.g., "Can manage pipelines").</p>
+                        </li>
+                         <li class="flex items-start">
+                            <span class="flex-shrink-0 flex items-center justify-center h-8 w-8 rounded-full bg-blue-500 text-white font-bold mr-4 mt-1">6️⃣</span>
+                            <p><strong class="text-slate-900">Network & Security (for Production):</strong> Proper network configuration (VNet injection, private endpoints) and IAM roles/service principals for secure cloud resource access.</p>
+                        </li>
+                    </ul>
+                </div>
+            </section>
         </main>
 
+        <!-- Footer -->
         <footer class="bg-slate-100 py-6 mt-12 border-t border-slate-200">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between text-slate-600 text-sm">
                 <div class="flex items-center space-x-2 mb-4 sm:mb-0">
@@ -227,6 +273,7 @@
         </footer>
     </div>
 
+    <!-- Modal -->
     <div id="modal" class="fixed inset-0 bg-black bg-opacity-50 z-30 hidden items-center justify-center p-4">
         <div class="bg-white rounded-lg shadow-2xl max-w-md w-full p-6 relative">
             <button id="close-modal" class="absolute top-2 right-2 text-slate-500 hover:text-slate-800 text-2xl">&times;</button>
@@ -234,7 +281,6 @@
             <p id="modal-content" class="text-slate-600"></p>
         </div>
     </div>
-
     <script src="script.js"></script>
 </body>
 </html>
